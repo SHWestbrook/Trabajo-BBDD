@@ -1,0 +1,3 @@
+Cuando quedemos os explicaré bien como funciona y tal pero lo primero es un hacer un clone,
+lo más importante es asegurarser de tener la ultima versión antes de hacer cualquier modificacion
+ya que si no se machacan y pueden perderse cosas.
