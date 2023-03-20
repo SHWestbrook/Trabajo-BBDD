@@ -7,19 +7,12 @@ GO
 USE Steam
 GO
 
-CREATE TABLE Paises(
-    IdPais INT IDENTITY(1,1) PRIMARY KEY,
-    Nombre VARCHAR (100) NOT NULL,
-    TipoMoneda VARCHAR (100) NOT NULL,
-    ConversionDolar DECIMAL (10,2)
-)
-
 CREATE TABLE Juegos(
     IdJuego INT IDENTITY(1,1) PRIMARY KEY,
     Nombre VARCHAR (300) NOT NULL,
     Descripcion VARCHAR (1000) NULL,
-    PrecioActual DECIMAL (6,2) NOT NULL,
-    FechaPublicacion DATETIME NULL,
+    PrecioActual DECIMAL (6,2) NULL,
+    FechaPublicacion VARCHAR(100) NULL,
 )
 
 CREATE TABLE Generos(
@@ -88,15 +81,6 @@ CREATE TABLE GruposUsuarios(
     CONSTRAINT FKUsuarioG FOREIGN KEY (IdUsuario) REFERENCES Usuarios(IdUsuario),
 )
 
-CREATE TABLE JuegosUsuarios(
-    IdUsuario INT NOT NULL,
-    IdJuego INT NOT NULL,
-    HorasJugados DECIMAL (7,2),
-    PRIMARY KEY(IdUsuario, IdJuego),
-    CONSTRAINT FKUsuarioJ FOREIGN KEY (IdUsuario) REFERENCES Usuarios(IdUsuario),
-    CONSTRAINT FKJuegoU FOREIGN KEY (IdJuego) REFERENCES Juegos(IdJuego)
-)
-
 CREATE TABLE Pedidos(
     IdPedido INT IDENTITY (1,1) PRIMARY KEY,
     IdUsuarioComprador INT NOT NULL,
@@ -140,56 +124,4 @@ CREATE TABLE Resenas(
     PRIMARY KEY (IdUsuario, IdJuego),
     CONSTRAINT FKUsuarioR FOREIGN KEY (IdUsuario) REFERENCES Usuarios(IdUsuario),
     CONSTRAINT FKJuegoR FOREIGN KEY (IdJuego) REFERENCES Juegos(IdJuego),
-)
-
-CREATE TABLE Mods(
-    IdMod INT IDENTITY(1,1) PRIMARY KEY,
-    IdJuego INT NOT NULL,
-    IdCreador INT NOT NULL,
-    Nombre VARCHAR(100) NOT NULL,
-    FechaPublicacion DATETIME NOT NULL,
-    Descripcion VARCHAR(1000) NULL,
-    CONSTRAINT FKJuegoM FOREIGN KEY (IdJuego) REFERENCES Juegos(IdJuego),
-    CONSTRAINT FKUsuarioM FOREIGN KEY (IdCreador) REFERENCES Usuarios(IdUsuario),
-)
-
-CREATE TABLE Suscripciones(
-    IdUsuario INT NOT NULL,
-    IdMod INT NOT NULL,
-    FechaSuscripcion DATETIME NOT NULL,
-    Valoracion INT NULL,
-    PRIMARY KEY (IdUsuario, IdMod),
-    CONSTRAINT FKUsuarioS FOREIGN KEY (IdUsuario) REFERENCES Usuarios(IdUsuario),
-    CONSTRAINT FKModS FOREIGN KEY (IdMod) REFERENCES Mods(IdMod),
-)
-
-CREATE TABLE ComentariosMods(
-    IdComentario INT IDENTITY(1,1) PRIMARY KEY,
-    IdMod INT NOT NULL,
-    IdUsuario INT NOT NULL,
-    Fecha DATETIME NOT NULL,
-    Contenido VARCHAR (1000) NOT NULL,
-    CONSTRAINT FKModCM FOREIGN KEY (IdMod) REFERENCES Mods(IdMod),
-    CONSTRAINT FKUsuarioCM FOREIGN KEY (IdUsuario) REFERENCES Usuarios(IdUsuario),
-)
-
-CREATE TABLE Hilos(
-    IdHilo INT IDENTITY(1,1) PRIMARY KEY,
-    IdGrupo INT NOT NULL,
-    IdUsuario INT NOT NULL,
-    FechaCreacion DATETIME NOT NULL,
-    Titulo VARCHAR(100) NOT NULL,
-    Contendio VARCHAR (1000) NOT NULL,
-    CONSTRAINT FKGrupoH FOREIGN KEY (IdGrupo) REFERENCES Grupos(IdGrupo),
-    CONSTRAINT FKUsuarioH FOREIGN KEY (IdUsuario) REFERENCES Usuarios(IdUsuario),
-)
-
-CREATE TABLE ComentariosHilo(
-    IdComentario INT IDENTITY (1,1) PRIMARY KEY,
-    IdHilo INT NOT NULL,
-    IdUsuario INT NOT NULL,
-    Fecha DATETIME NOT NULL,
-    Contenido VARCHAR (1000) NOT NULL,
-    CONSTRAINT FKHiloCH FOREIGN KEY (IdHilo) REFERENCES Hilos(IdHilo),
-    CONSTRAINT FKUsuariosCH FOREIGN KEY (IdUsuario) REFERENCES Usuarios(IdUsuario),
 )
