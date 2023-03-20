@@ -1,0 +1,3 @@
+generatedata.com (puedo generar una tabla sql con datos aleatorios de clientes o cualquier otra cosa)
+
+kaggle.com (Puedes buscar bases de datos ya generadas sobre diferentes temas)
