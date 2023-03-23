@@ -1,3 +1,4 @@
 Id metiendo aquí los csvs que vayais haciendo, cuando los tengamos todos empezamos a intentar hacer BULK INSERT.
 
-He subido un .java que puede servir para recrear algunos csv en caso de que se pierdan o necesitemos cambiar algunos campos
+He subido un .java que puede servir para recrear algunos csv en caso de que se pierdan o necesitemos cambiar algunos campos.
+Revisad antes de empezar a generar una tabla si esta se puede autogenerar en el .java ya que será más cómodo.
