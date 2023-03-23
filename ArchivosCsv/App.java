@@ -53,6 +53,36 @@ public class App {
 
         //tablaPedidosJuegos(50000, 100, 1, 7);
 
+        //Script para la creación de la tabla Pedidos
+
+        //tablaPedidos(100000, 10000, 0.7, LocalDate.of(2003, 9, 1), LocalDate.of(2023, 3, 20));
+
+        
+
+    }
+
+    private static void tablaPedidos(int pedidos, int usuarios, double probabilidadcomprapropia, LocalDate inicio,
+            LocalDate fin) {
+        String [] mensajes={"If you are a beautiful strong black woman someone will put this in your comments", "Vete a recoger patatas",
+        "GG", "Camper tunneler -rep", "Que perfil mas chulo", "Agregame para jugar juntos :)", "Hola te acuerdas de mi? besis <oo>", "Gracias por el carreo",
+        "No jugueis con el le faltan manos", "No me puedo creer que tengas tan pocas horas", "Muy cringe tu foto de perfil", "+rep divertido jugar con el :D",
+        "No me carga tu descripcion :(", "Como es posible que tengas tantas horas O:", "Si no soportas la presión no jueges! Fastidias la experiencia de los demás",
+        "Echemonos algunas partidas al CSGO", "Me intercambias cromos?", "Algun dia me tienes que enseñar a jugar al Stardew valley", "No te rindas tienes potencial"};
+
+        for (int i=0; i<pedidos; i++){
+
+            int usuariorandom=(int) (1+Math.random()*usuarios);
+            double probabilidadcompra=Math.random();
+            System.out.print(",");
+            System.out.print(usuariorandom);
+            System.out.print(",");
+            System.out.print((probabilidadcompra<=probabilidadcomprapropia)?usuariorandom:(int) (1+Math.random()*usuarios));
+            System.out.print(",");
+            System.out.print(inicio.plusDays((int) (Math.random()*ChronoUnit.DAYS.between(inicio, fin))));
+            System.out.print(",");
+            System.out.println((probabilidadcompra<=probabilidadcomprapropia)?"Nan":mensajes[(int) (Math.random()*mensajes.length)]);
+
+        }
     }
 
     private static void tablaPedidosJuegos(int numeropedidos, int numerojuegos, int juegosminimos, int juegosmaximos) {
