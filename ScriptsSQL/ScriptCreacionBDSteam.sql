@@ -11,8 +11,8 @@ CREATE TABLE Juegos(
     IdJuego INT IDENTITY(1,1) PRIMARY KEY,
     Nombre VARCHAR (300) NOT NULL,
     Descripcion VARCHAR (1000) NULL,
-    PrecioActual DECIMAL (6,2) NULL,
-    FechaPublicacion VARCHAR(100) NULL,
+    PrecioActual DECIMAL (6,2) NOT NULL,
+    FechaPublicacion VARCHAR(100) NOT NULL,
 )
 
 CREATE TABLE Generos(
@@ -36,11 +36,9 @@ CREATE TABLE Usuarios(
     Contrasena VARCHAR (50) NOT NULL,
     FechaNacimiento DATETIME NOT NULL,
     Nick VARCHAR (100) NOT NULL,
-    IdPais INT NOT NULL,
     Status BIT NOT NULL,
     Nivel INT NOT NULL,
     AboutMe VARCHAR (1000) NULL,
-    CONSTRAINT FKPaisU FOREIGN KEY (IdPais) REFERENCES Paises(IdPais),
 )
 
 CREATE TABLE Mensajes(
@@ -124,4 +122,12 @@ CREATE TABLE Resenas(
     PRIMARY KEY (IdUsuario, IdJuego),
     CONSTRAINT FKUsuarioR FOREIGN KEY (IdUsuario) REFERENCES Usuarios(IdUsuario),
     CONSTRAINT FKJuegoR FOREIGN KEY (IdJuego) REFERENCES Juegos(IdJuego),
+)
+
+BULK INSERT Usuarios FROM '/var/opt/mssql/backup/csv/Usuarios.csv'
+WITH (
+
+FIELDTERMINATOR=',',
+ROWTERMINATOR='\n'
+
 )
