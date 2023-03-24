@@ -15,6 +15,8 @@ public class App {
 
         PrintStream out = new PrintStream(new FileOutputStream("output.csv"));
         System.setOut(out);
+        //Script para generar los datos de la tabla JuegosDesarrolladores
+
 
         //Script para generar los datos de la tabla GruposUsuarios
 
@@ -22,7 +24,7 @@ public class App {
 
         //Script para generar los datos de la tabla Amigos
         
-        tablaAmigos(1000,3,100, LocalDate.of(2003, 9, 1), LocalDate.of(2023, 3, 20) );
+        //tablaAmigos(1000,3,100, LocalDate.of(2003, 9, 1), LocalDate.of(2023, 3, 20) );
 
         //Script para generar los datos de la tabla Grupos
 
@@ -46,7 +48,7 @@ public class App {
 
         //Script para la creación de la tabla JuegosDesarrolladores
 
-        //tablaJuegosDesarrolladores(1000, 1000, 1, 4);
+        tablaJuegosDesarrolladores(13600, 1000, 1, 4);
 
         //Script para la creación de la tabla PedidosJuegos
         //Falta rellenar el campo PrecioHistorico

@@ -38,7 +38,7 @@ CREATE TABLE Usuarios(
     Nick VARCHAR (100) NOT NULL,
     Status BIT NOT NULL,
     Nivel INT NOT NULL,
-    AboutMe VARCHAR (1000) NULL,
+    AboutMe VARCHAR (8000) NULL,
 )
 
 CREATE TABLE Mensajes(
