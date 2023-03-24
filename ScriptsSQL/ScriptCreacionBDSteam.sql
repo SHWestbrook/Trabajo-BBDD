@@ -10,9 +10,9 @@ GO
 CREATE TABLE Juegos(
     IdJuego INT IDENTITY(1,1) PRIMARY KEY,
     Nombre VARCHAR (300) NOT NULL,
-    Descripcion VARCHAR (1000) NULL,
+    Descripcion VARCHAR (1000) NOT NULL,
     PrecioActual DECIMAL (6,2) NOT NULL,
-    FechaPublicacion VARCHAR(100) NOT NULL,
+    FechaPublicacion DATE NOT NULL,
 )
 
 CREATE TABLE Generos(
@@ -34,7 +34,7 @@ CREATE TABLE Usuarios(
     IdUsuario INT IDENTITY(1,1) PRIMARY KEY,
     Email VARCHAR(200) NOT NULL,
     Contrasena VARCHAR (50) NOT NULL,
-    FechaNacimiento DATETIME NOT NULL,
+    FechaNacimiento DATE NOT NULL,
     Nick VARCHAR (100) NOT NULL,
     Status BIT NOT NULL,
     Nivel INT NOT NULL,
@@ -54,7 +54,7 @@ CREATE TABLE Mensajes(
 CREATE TABLE Amigos(
     Usuario1 INT NOT NULL,
     Usuario2 INT NOT NULL,
-    FechaInicioAmistad DATETIME NOT NULL,
+    FechaInicioAmistad DATE NOT NULL,
     PRIMARY KEY (Usuario1, Usuario2),
     CONSTRAINT FKUsuario1 FOREIGN KEY (Usuario1) REFERENCES Usuarios(IdUsuario),
     CONSTRAINT FKUsuario2 FOREIGN KEY (Usuario2) REFERENCES Usuarios(IdUsuario),
@@ -73,7 +73,7 @@ CREATE TABLE ComentariosPerfil(
 CREATE TABLE GruposUsuarios(
     IdGrupo INT NOT NULL,
     IdUsuario INT NOT NULL,
-    FechaUnion DATETIME NOT NULL,
+    FechaUnion DATE NOT NULL,
     PRIMARY KEY(IdGrupo, IdUsuario),
     CONSTRAINT FKGrupoU FOREIGN KEY (IdGrupo) REFERENCES Grupos(IdGrupo),
     CONSTRAINT FKUsuarioG FOREIGN KEY (IdUsuario) REFERENCES Usuarios(IdUsuario),
@@ -83,8 +83,8 @@ CREATE TABLE Pedidos(
     IdPedido INT IDENTITY (1,1) PRIMARY KEY,
     IdUsuarioComprador INT NOT NULL,
     IdUsuarioRecibidor INT NOT NULL,
-    Fecha DATETIME NOT NULL,
-    Mensaje VARCHAR (100) NULL,
+    Fecha DATE NOT NULL,
+    Mensaje VARCHAR (100) NOT NULL,
     CONSTRAINT FKUsuarioComprador FOREIGN KEY (IdUsuarioComprador) REFERENCES Usuarios(IdUsuario),
     CONSTRAINT FKUsuarioRecibidor FOREIGN KEY (IdUsuarioRecibidor) REFERENCES Usuarios(IdUsuario),
 )
@@ -148,13 +148,13 @@ ROWTERMINATOR='\n'
 
 )
 
-/*BULK INSERT Juegos FROM '/var/opt/mssql/backup/csv/Juegos.csv'
+BULK INSERT Juegos FROM '/var/opt/mssql/backup/csv/Juegos.csv'
 WITH (
 
 FIELDTERMINATOR=',',
 ROWTERMINATOR='\n'
 
-)*/
+)
 
 BULK INSERT Generos FROM '/var/opt/mssql/backup/csv/Generos.csv'
 WITH (
@@ -204,13 +204,13 @@ ROWTERMINATOR='\n'
 
 )
 
-/*BULK INSERT PedidosJuegos FROM '/var/opt/mssql/backup/csv/PedidosJuegos.csv'
+BULK INSERT PedidosJuegos FROM '/var/opt/mssql/backup/csv/PedidosJuegos.csv'
 WITH (
 
 FIELDTERMINATOR=',',
 ROWTERMINATOR='\n'
 
-)*/
+)
 
 BULK INSERT GruposUsuarios FROM '/var/opt/mssql/backup/csv/GruposUsuarios.csv'
 WITH (
