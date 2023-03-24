@@ -131,3 +131,107 @@ FIELDTERMINATOR=',',
 ROWTERMINATOR='\n'
 
 )
+
+BULK INSERT Grupos FROM '/var/opt/mssql/backup/csv/Grupos.csv'
+WITH (
+
+FIELDTERMINATOR=',',
+ROWTERMINATOR='\n'
+
+)
+
+BULK INSERT Juegos FROM '/var/opt/mssql/backup/csv/Juegos.csv'
+WITH (
+
+FIELDTERMINATOR=',',
+ROWTERMINATOR='\n'
+
+)
+
+BULK INSERT Generos FROM '/var/opt/mssql/backup/csv/Generos.csv'
+WITH (
+
+FIELDTERMINATOR=',',
+ROWTERMINATOR='\n'
+
+)
+
+BULK INSERT Desarrolladores FROM '/var/opt/mssql/backup/csv/Desarrolladores.csv'
+WITH (
+
+FIELDTERMINATOR=',',
+ROWTERMINATOR='\n'
+
+)
+
+BULK INSERT JuegosDesarrolladores FROM '/var/opt/mssql/backup/csv/JuegosDesarrolladores.csv'
+WITH (
+
+FIELDTERMINATOR=',',
+ROWTERMINATOR='\n'
+
+)
+
+BULK INSERT JuegosGeneros FROM '/var/opt/mssql/backup/csv/JuegosGeneros.csv'
+WITH (
+
+FIELDTERMINATOR=',',
+ROWTERMINATOR='\n'
+
+)
+
+BULK INSERT Resnas FROM '/var/opt/mssql/backup/csv/Resenas.csv'
+WITH (
+
+FIELDTERMINATOR=',',
+ROWTERMINATOR='\n'
+
+)
+
+BULK INSERT Pedidos FROM '/var/opt/mssql/backup/csv/Pedidos.csv'
+WITH (
+
+FIELDTERMINATOR=',',
+ROWTERMINATOR='\n'
+
+)
+
+BULK INSERT PedidosJuegos FROM '/var/opt/mssql/backup/csv/PedidosJuegos.csv'
+WITH (
+
+FIELDTERMINATOR=',',
+ROWTERMINATOR='\n'
+
+)
+
+BULK INSERT GruposUsuarios FROM '/var/opt/mssql/backup/csv/GruposUsuarios.csv'
+WITH (
+
+FIELDTERMINATOR=',',
+ROWTERMINATOR='\n'
+
+)
+
+BULK INSERT Amigos FROM '/var/opt/mssql/backup/csv/Amigos.csv'
+WITH (
+
+FIELDTERMINATOR=',',
+ROWTERMINATOR='\n'
+
+)
+
+BULK INSERT Mensajes FROM '/var/opt/mssql/backup/csv/Mensajes.csv'
+WITH (
+
+FIELDTERMINATOR=',',
+ROWTERMINATOR='\n'
+
+)
+
+BULK INSERT ComentariosPerfil FROM '/var/opt/mssql/backup/csv/ComentariosPerfil.csv'
+WITH (
+
+FIELDTERMINATOR=',',
+ROWTERMINATOR='\n'
+
+)
