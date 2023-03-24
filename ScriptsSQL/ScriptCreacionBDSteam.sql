@@ -148,13 +148,13 @@ ROWTERMINATOR='\n'
 
 )
 
-BULK INSERT Juegos FROM '/var/opt/mssql/backup/csv/Juegos.csv'
+/*BULK INSERT Juegos FROM '/var/opt/mssql/backup/csv/Juegos.csv'
 WITH (
 
 FIELDTERMINATOR=',',
 ROWTERMINATOR='\n'
 
-)
+)*/
 
 BULK INSERT Generos FROM '/var/opt/mssql/backup/csv/Generos.csv'
 WITH (
@@ -180,15 +180,15 @@ ROWTERMINATOR='\n'
 
 )
 
-BULK INSERT JuegosGeneros FROM '/var/opt/mssql/backup/csv/JuegosGeneros.csv'
+/*BULK INSERT JuegosGeneros FROM '/var/opt/mssql/backup/csv/JuegosGeneros.csv'
 WITH (
 
 FIELDTERMINATOR=',',
 ROWTERMINATOR='\n'
 
-)
+)*/
 
-BULK INSERT Resnas FROM '/var/opt/mssql/backup/csv/Resenas.csv'
+BULK INSERT Resenas FROM '/var/opt/mssql/backup/csv/Resenas.csv'
 WITH (
 
 FIELDTERMINATOR=',',
