@@ -204,13 +204,13 @@ ROWTERMINATOR='\n'
 
 )
 
-BULK INSERT PedidosJuegos FROM '/var/opt/mssql/backup/csv/PedidosJuegos.csv'
+/*BULK INSERT PedidosJuegos FROM '/var/opt/mssql/backup/csv/PedidosJuegos.csv'
 WITH (
 
 FIELDTERMINATOR=',',
 ROWTERMINATOR='\n'
 
-)
+)*/
 
 BULK INSERT GruposUsuarios FROM '/var/opt/mssql/backup/csv/GruposUsuarios.csv'
 WITH (
