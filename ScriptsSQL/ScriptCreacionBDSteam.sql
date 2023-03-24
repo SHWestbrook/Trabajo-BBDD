@@ -132,6 +132,14 @@ ROWTERMINATOR='\n'
 
 )
 
+BULK INSERT Amigos FROM '/var/opt/mssql/backup/csv/Amigos.csv'
+WITH (
+
+FIELDTERMINATOR=',',
+ROWTERMINATOR='\n'
+
+)
+
 BULK INSERT Grupos FROM '/var/opt/mssql/backup/csv/Grupos.csv'
 WITH (
 
@@ -205,14 +213,6 @@ ROWTERMINATOR='\n'
 )
 
 BULK INSERT GruposUsuarios FROM '/var/opt/mssql/backup/csv/GruposUsuarios.csv'
-WITH (
-
-FIELDTERMINATOR=',',
-ROWTERMINATOR='\n'
-
-)
-
-BULK INSERT Amigos FROM '/var/opt/mssql/backup/csv/Amigos.csv'
 WITH (
 
 FIELDTERMINATOR=',',

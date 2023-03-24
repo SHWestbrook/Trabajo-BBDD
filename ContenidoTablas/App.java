@@ -22,7 +22,7 @@ public class App {
 
         //Script para generar los datos de la tabla Amigos
         
-        //tablaAmigos(10000,3,100, LocalDate.of(2003, 9, 1), LocalDate.of(2023, 3, 20) );
+        tablaAmigos(1000,3,100, LocalDate.of(2003, 9, 1), LocalDate.of(2023, 3, 20) );
 
         //Script para generar los datos de la tabla Grupos
 
@@ -30,7 +30,7 @@ public class App {
 
         //Script para generar los datos de la tabla ComentariosPerfil
 
-        //tablaComentariosPerfil(LocalDate.of(2003, 9, 1), LocalDate.of(2023, 3, 20), 10000, 10);
+        //tablaComentariosPerfil(LocalDate.of(2003, 9, 1), LocalDate.of(2023, 3, 20), 1000, 10);
 
         //Script para generar los datos de la tabla Mensajes
         
@@ -284,8 +284,9 @@ public class App {
         int numerorandom;
 
         for (int i=1; i<=numerousuarios; i++){
-
+        	
             int amigos=usuarios.get(i-1).size();
+            ArrayList<Integer> yaamigados=new ArrayList<Integer>();
             for(int j=0; j<amigos; j++){
 
                 System.out.print(i);
@@ -295,14 +296,14 @@ public class App {
 
                     numerorandom=(int) (i+Math.random()*(numerousuarios-i+1));
                     contador++;
-                    if (contador>10000){
+                    if (contador>100000){
 
                         break;
 
                     }
 
-                }while (usuarios.get(numerorandom-1).size()==0 || numerorandom==i);
-                if (contador>10000){
+                }while (usuarios.get(numerorandom-1).size()==0 || numerorandom==i || yaamigados.contains(numerorandom));
+                if (contador>100000){
                     
                     continue;
 
@@ -310,6 +311,7 @@ public class App {
                 System.out.print(",");
                 System.out.print(numerorandom);
                 usuarios.get(numerorandom-1).remove(0);
+                yaamigados.add(numerorandom);
                 System.out.print(",");
                 System.out.println(inicio.plusDays((int) (Math.random()*ChronoUnit.DAYS.between(inicio, fin))));
 
