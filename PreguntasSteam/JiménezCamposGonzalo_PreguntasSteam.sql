@@ -11,8 +11,6 @@ INNER JOIN GruposUsuarios GU ON GU.IdGrupo=G.IdGrupo
 GROUP BY G.IdGrupo, Nombre
 ORDER BY COUNT(IdUsuario) DESC
 
---Hay muchos grupos que tienen la misma cantidad de usuarios
-
 --3. ¿Cuántos mensajes se han enviaron en 2019, 2020, 2021 ?
 
 SELECT COUNT(1), YEAR(FechaMensaje) FROM Mensajes
@@ -30,8 +28,6 @@ INNER JOIN Resenas R ON J.IdJuego=R.IdJuego
 WHERE G.Nombre like 'Tactical%' AND R.Tipo=1
 GROUP BY J.IdJuego, G.IdGenero, J.Nombre, G.Nombre
 ORDER BY COUNT(R.IdUsuario) DESC
-
---La consulta no funciona porque todos los generos tienen un espacio delante
 
 --5. ¿Cual es el nombre de los desarrolladores con id 52 y cual es el juego más caro que han desarrollado?
 
@@ -58,7 +54,7 @@ WHERE P.IdUsuarioComprador<>P.IdUsuarioRecibidor
 GROUP BY IdUsuarioComprador, U.Email
 ORDER BY COUNT(PJ.IdJuego) DESC
 
---7. ¿Cual es el usuario del grupo con id 732 que más veces ha comentando en el perfil de usuarios que tienen comprado el juego Counter-Strike: Global Offensive ?
+--7. ¿Cual es el usuario del grupo con id 732 que más veces ha comentando en el perfil de usuarios que tienen comprado el juego Galactic Bowling?
 
 SELECT TOP 1 U.IdUsuario, COUNT(IdComentario) FROM Usuarios U
 INNER JOIN GruposUsuarios GU ON GU.IdUsuario=U.IdUsuario
@@ -68,7 +64,7 @@ WHERE IdGrupo=732 AND CP.IdUsuarioReceptor in (
     INNER JOIN Pedidos P ON P.IdUsuarioRecibidor=U.IdUsuario
     INNER JOIN PedidosJuegos PJ ON P.IdPedido=PJ.IdPedido
     INNER JOIN Juegos J ON PJ.IdJuego=J.IdJuego
-    WHERE J.Nombre like 'Counter-Strike: Global Offensive'
+    WHERE J.Nombre like 'Galactic Bowling'
     GROUP BY IdUsuario)
 GROUP BY U.IdUsuario
 ORDER BY COUNT(IdComentario) DESC
